@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.learn.spring</groupId>
+    <artifactId>cloud</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>cloud-eureka</module>
+        <module>cloud-config</module>
+        <module>cloud-gateway</module>
+        <module>cloud-core</module>
+        <module>web</module>
+        <module>order-service</module>
+        <module>user-service</module>
+        <module>cloud-hystrixturbine</module>
+    </modules>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <cloud.version>Finchley.SR3</cloud.version>
+        <boot.version>2.0.8.RELEASE</boot.version>
+    </properties>
+    <packaging>pom</packaging>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+                <configLabel>master</configLabel>
+                <eurekaAddress>'http://127.0.0.1:8761/eureka'</eurekaAddress>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profiles.active>test</profiles.active>
+                <configLabel>master</configLabel>
+                <eurekaAddress>'http://127.0.0.1:8761/eureka'</eurekaAddress>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+                <configLabel>master</configLabel>
+                <eurekaAddress>'http://127.0.0.1:8761/eureka'</eurekaAddress>
+            </properties>
+
+        </profile>
+    </profiles>
+</project>

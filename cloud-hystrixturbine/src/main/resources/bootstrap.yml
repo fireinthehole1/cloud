@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: cloud-hystrixturbine
+  profiles:
+    active: ${profiles.active}
+  cloud:
+    config:
+      label: ${configLabel}
+      discovery:
+        enabled: true
+        service-id: cloud-config
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+    hostname: ${spring.cloud.client.ip-address}
+  client:
+    serviceUrl:
+      defaultZone: ${eurekaAddress}
+    register-with-eureka: true
+
+turbine:
+  app-config: WEB,CLOUD-USER,CLOUD-ORDER,CLOUD-GATEWAY
+  cluster-name-expression: new String("default")
+  instanceUrlSuffix: /actuator/hystrix.stream

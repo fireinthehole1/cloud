@@ -1,0 +1,12 @@
+server:
+  port: 8889
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/fireinthehole1/configServer.git
+          searchPaths:
+            - env/prod
+          username:
+          password:
