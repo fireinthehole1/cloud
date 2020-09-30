@@ -1,13 +1,20 @@
 server:
   port: 8888
 spring:
+  zipkin:
+    base-url: http://localhost:9009  #指定Zipkin server地址
+    sleuth:
+      sampler:
+        probability: 1.0
   cloud:
     config:
       server:
+        encrypt:
+          enabled: true
         git:
           uri: https://github.com/fireinthehole1/configServer.git
 
           searchPaths:
             - env/dev
-          username:
-          password:
+          username: '{cipher}feeae6b33baa723d00837780c5b88b42725086af02e0c4c8732e018d78c90c9d6cd9550e1bee811d635dab24a9b11321'
+          password: '{cipher}feeae6b33baa723d00837780c5b88b42725086af02e0c4c8732e018d78c90c9d6cd9550e1bee811d635dab24a9b11321'

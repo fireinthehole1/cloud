@@ -3,3 +3,8 @@ spring:
     name: eureka-server
   profiles:
     active: ${profiles.active}
+  zipkin:
+    base-url: http://localhost:9009  #指定Zipkin server地址
+    sleuth:
+      sampler:
+        probability: 1.0

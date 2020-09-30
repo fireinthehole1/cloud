@@ -16,6 +16,7 @@
         <module>order-service</module>
         <module>user-service</module>
         <module>cloud-hystrixturbine</module>
+        <module>zipkin-server</module>
     </modules>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>

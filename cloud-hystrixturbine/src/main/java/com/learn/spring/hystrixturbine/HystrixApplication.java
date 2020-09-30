@@ -27,7 +27,7 @@ public class HystrixApplication {
         ServletRegistrationBean registrationBean = new ServletRegistrationBean(streamServlet);
         registrationBean.setLoadOnStartup(1);
         registrationBean.addUrlMappings("/actuator/hystrix.stream");
-        registrationBean.setName("HystrixMetricsStreamServlet");
+        registrationBean.setName("hystrixMetricsStreamServlet");
         return registrationBean;
     }
 }

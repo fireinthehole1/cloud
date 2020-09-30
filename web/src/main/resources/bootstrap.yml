@@ -16,7 +16,7 @@ eureka:
     hostname: ${spring.cloud.client.ip-address}
   client:
     serviceUrl:
-      defaultZone: ${eurekaAddress}
+      defaultZone: http://127.0.0.1:8761/eureka
     register-with-eureka: true
 jasypt:
   encryptor:

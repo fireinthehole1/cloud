@@ -3,7 +3,7 @@ package com.learn.spring.gateway.auth;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.learn.spring.cloud.core.JsonResult;
-import io.netty.util.CharsetUtil;
+import feign.form.util.CharsetUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -60,9 +60,10 @@ public class AuthFilter implements GlobalFilter {
             jsonStr = JSONObject.toJSONString(jsonResult);
         }
         byte[] bytes = jsonStr.getBytes(CharsetUtil.UTF_8);
-        DataBuffer buffer = serverWebExchange.getResponse().bufferFactory().wrap(bytes);
-        HttpHeaders headers = serverWebExchange.getResponse().getHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+        DataBuffer buffer = serverWebExchange.getResponse()
+                .bufferFactory().wrap(bytes);
+        serverWebExchange.getResponse().getHeaders()
+                .setContentType(MediaType.APPLICATION_JSON_UTF8);
         return serverWebExchange.getResponse().writeWith(Flux.just(buffer));
     }
 }

@@ -3,7 +3,7 @@ package com.learn.spring.web.config;
 import lombok.Data;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
+
 
 /**
  * @author bill
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
  */
 @Configuration
 @PropertySource("classpath:config.properties")
-@Component
 @Data
 public class WebConfigurations {
 

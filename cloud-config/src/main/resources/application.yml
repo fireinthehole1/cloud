@@ -1,12 +1,10 @@
 spring:
-  application:
-    name: cloud-config
-  profiles:
+ profiles:
     active: ${profiles.active}
 eureka:
   client:
     service-url:
-      defaultZone: ${eurekaAddress}
+      defaultZone: http://127.0.0.1:8761/eureka
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}

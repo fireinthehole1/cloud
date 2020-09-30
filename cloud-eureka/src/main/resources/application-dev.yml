@@ -7,7 +7,8 @@ eureka:
         hostname: ${spring.cloud.client.ip-address}
     client:
         service-url:
-            defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+            defaultZone: http://127.0.0.1:8761/eureka
+        register-with-eureka: false
     server:
         enable-self-preservation: false
         eviction-interval-timer-in-ms: 5000
